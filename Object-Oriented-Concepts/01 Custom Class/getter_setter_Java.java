@@ -1,5 +1,3 @@
-package com.company;
-
 class Employee{
     int salary;
     String name;
@@ -49,7 +47,7 @@ class Tommy{
         System.out.println("Firing on the enemy");
     }
 }
-public class cwh_39_ch8ps {
+public class getter_setter_Java{
     public static void main(String[] args) {
         /*
         // Problem 1
