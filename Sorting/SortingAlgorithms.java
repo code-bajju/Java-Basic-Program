@@ -181,6 +181,9 @@ public class SortingAlgorithms {
     }
     
     // Driver code to test the above sorting methods
+    /**
+     * @param args
+     */
     public static void main(String[] args) {
         int[] arr = { 64, 34, 25, 12, 22, 11, 90 };
     
@@ -199,6 +202,40 @@ public class SortingAlgorithms {
     
         // Insertion Sort
         insertionSort(arr);
-        System.out.println("Array after
+        System.out.println("Array after Insertion Sort:");
+        printArray(arr);
     
+            // Merge Sort
+    mergeSort(arr, 0, arr.length - 1);
+    System.out.println("Array after Merge Sort:");
+    printArray(arr);
+
+    // Quick Sort
+    quickSort(arr, 0, arr.length - 1);
+    System.out.println("Array after Quick Sort:");
+    printArray(arr);
+
+    // Heap Sort
+    heapSort(arr);
+    System.out.println("Array after Heap Sort:");
+    printArray(arr);
+}
+
+    private static void printArray(int[] arr) {
+    }
+}
+
+// Utility class to print arrays
+class SortUtility {
+public static void printArray(int[] arr) {
+int n = arr.length;
+for (int i = 0; i < n; ++i)
+System.out.print(arr[i] + " ");
+System.out.println();
+}
+}
+
+
+
+
            
