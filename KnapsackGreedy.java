@@ -1,106 +1,56 @@
+//This is a sample program to implement a fractional knapsack problem
+import java.io.IOException;
 import java.util.Scanner;
-
-class Knapsack {
-    public static void main(String[] args) {
+ 
+class knapsackGreedy  
+{  
+    public static void main(String args[]) throws IOException  
+    {  
+        int i,j=0,max_qty,m,n;  
+        float sum=0,max;  
         Scanner sc = new Scanner(System.in);
-        int object, m;
-        System.out.println("Enter the Total Objects");
-        object = sc.nextInt();
-        int weight[] = new int[object];
-        int profit[] = new int[object];
-        for (int i = 0; i < object; i++) {
-            System.out.println("Enter the Profit");
-            profit[i] = sc.nextInt();
-            System.out.println("Enter the weight");
-            weight[i] = sc.nextInt();
-        }
-        System.out.println("Enter the Knapsack capacity");
-        m = sc.nextInt();
-        double p_w[] = new double[object];
-        for (int i = 0; i < object; i++) {
-            p_w[i] = (double) profit[i] / (double) weight[i];
-        }
-        System.out.println("");
-        System.out.println("-------------------");
-        System.out.println("-----Data-Set------");
-        System.out.print("-------------------");
-        System.out.println("");
-        System.out.print("Objects");
-        for (int i = 1; i <= object; i++) {
-            System.out.print(i + "    ");
-        }
-        System.out.println();
-        System.out.print("Profit ");
-        for (int i = 0; i < object; i++) {
-            System.out.print(profit[i] + "    ");
-        }
-        System.out.println();
-        System.out.print("Weight ");
-        for (int i = 0; i < object; i++) {
-            System.out.print(weight[i] + "    ");
-        }
-        System.out.println();
-        System.out.print("P/W    ");
-        for (int i = 0; i < object; i++) {
-            System.out.print(p_w[i] + "  ");
-        }
-        for (int i = 0; i < object - 1; i++) {
-            for (int j = i + 1; j < object; j++) {
-                if (p_w[i] < p_w[j]) {
-                    double temp = p_w[j];
-                    p_w[j] = p_w[i];
-                    p_w[i] = temp;
-
-                    int temp1 = profit[j];
-                    profit[j] = profit[i];
-                    profit[i] = temp1;
-
-                    int temp2 = weight[j];
-                    weight[j] = weight[i];
-                    weight[i] = temp2;
-                }
-            }
-        }
-        System.out.println("");
-        System.out.println("-------------------");
-        System.out.println("--After Arranging--");
-        System.out.print("-------------------");
-        System.out.println("");
-        System.out.print("Objects");
-        for (int i = 1; i <= object; i++) {
-            System.out.print(i + "    ");
-        }
-        System.out.println();
-        System.out.print("Profit ");
-        for (int i = 0; i < object; i++) {
-            System.out.print(profit[i] + "    ");
-        }
-        System.out.println();
-        System.out.print("Weight ");
-        for (int i = 0; i < object; i++) {
-            System.out.print(weight[i] + "    ");
-        }
-        System.out.println();
-        System.out.print("P/W    ");
-        for (int i = 0; i < object; i++) {
-            System.out.print(p_w[i] + "  ");
-        }
-        int k = 0;
-        double sum = 0;
-        System.out.println();
-        while (m > 0) {
-            if (weight[k] < m) {
-                sum += 1 * profit[k];
-                m = m - weight[k];
-            } else {
-                double x4 = m * profit[k];
-                double x5 = weight[k];
-                double x6 = x4 / x5;
-                sum = sum + x6;
-                m = 0;
-            }
-            k++;
-        }
-        System.out.println("Final Profit is=" + sum);
-    }
+        int array[][]=new int[2][20];  
+        System.out.println("Enter no of items");  
+        n=sc.nextInt(); 
+ 
+        System.out.println("Enter the weights of each items");
+        for(i=0;i<n;i++)  
+            array[0][i]=sc.nextInt();    
+ 
+        System.out.println("Enter the values of each items");
+        for(i=0;i<n;i++)  
+            array[1][i]=sc.nextInt(); 
+ 
+        System.out.println("Enter maximum volume of knapsack :");  
+        max_qty=sc.nextInt();  
+ 
+        m=max_qty;  
+        while(m>=0)  
+        {  
+            max=0;  
+            for(i=0;i<n;i++)  
+            {  
+                if(((float)array[1][i])/((float)array[0][i])>max)  
+                {  
+                    max=((float)array[1][i])/((float)array[0][i]);  
+                    j=i;  
+                }  
+            }  
+            if(array[0][j]>m)  
+            {  
+                System.out.println("Quantity of item number: " +  (j+1) + " added is " +m);  
+                sum+=m*max;  
+                m=-1;  
+            }  
+            else  
+            {  
+                System.out.println("Quantity of item number: " + (j+1) + " added is " + array[0][j]);  
+                m-=array[0][j];  
+                sum+=(float)array[1][j];  
+                array[1][j]=0;  
+            }  
+        }  
+        System.out.println("The total profit is " + sum);
+        sc.close();
+    }  
 }
