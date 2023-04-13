@@ -27,7 +27,7 @@ class Knapsack {
 	}
 
 	// Driver program to test above function
-	public static void main(String args[])
+	public static void main(String args[]) throws IOException
 	{
 		int val[] = new int[] { 60, 100, 120 };
 		int wt[] = new int[] { 10, 20, 30 };
@@ -36,4 +36,3 @@ class Knapsack {
 		System.out.println(knapSack(W, wt, val, n));
 	}
 }
-/*This code is contributed by Rajat Mishra */
