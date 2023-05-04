@@ -1,5 +1,6 @@
 public class cwh_ps {
     public static void main(String[] args) {
+        System.out.println("Hello World");
 
         // qn 1
 
@@ -45,6 +46,7 @@ public class cwh_ps {
         // System.out.println("fac");
         // }
         // nm.close();
+        
 
     }
 }
