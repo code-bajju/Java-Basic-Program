@@ -1,0 +1,10 @@
+va -cp /tmp/7M0yzhPdEj PriorityScheduling
+Order in which processes get executed:
+1 3 2 
+
+Processes	Burst Time	Waiting Time	Turnaround Time
+1		10		0		10
+3		8		10		18
+2		5		18		23
+Average waiting time = 9.333333
+Average turnaround time = 17.0
